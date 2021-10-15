@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import Section from "./Section";
+import useScrollSnap from "react-use-scroll-snap";
+import { useRef } from "react";
 
 const Home = () => {
+  const scrollRef = useRef(null);
+  useScrollSnap({ ref: scrollRef, duration: 100, delay: 1 });
+
   return (
-    <Container>
+    <Container ref={scrollRef}>
       <Section
         title="Model S"
         description="Order Online for Touchless Delivery"

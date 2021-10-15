@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import CloseIcon from "@mui/icons-material/Close";
+import { useState } from "react";
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleBurgerHandler = () => {
+    console.log(isMenuOpen);
+    setIsMenuOpen((prevState) => !isMenuOpen);
+  };
   return (
     <Container>
       <a href="s">
@@ -16,28 +23,44 @@ const Header = () => {
       <RightMenu>
         <a href="1">Shop</a>
         <a href="1">Account</a>
-        <CustomMenu />
-        <BurgerNav>
-          <li>
-            <a href="1">Existing Inventory</a>
-          </li>
-          <li>
-            <a href="1">Used Inventory</a>
-          </li>
-          <li>
-            <a href="1">Cybertruck</a>
-          </li>
-          <li>
-            <a href="1">Roadster</a>
-          </li>
-          <li>
-            <a href="1">Events</a>
-          </li>
-          <li>
-            <a href="1">Agents</a>
-          </li>
-        </BurgerNav>
+        <CustomMenu onClick={toggleBurgerHandler} />
       </RightMenu>
+      <BurgerNav show={isMenuOpen}>
+        <CloseWrapper>
+          <CustomClose onClick={toggleBurgerHandler} />
+        </CloseWrapper>
+        <li>
+          <a href="1">Model S</a>
+        </li>
+        <li>
+          <a href="1">Model 3</a>
+        </li>
+        <li>
+          <a href="1">Model X</a>
+        </li>
+        <li>
+          <a href="1">Model Y</a>
+        </li>
+
+        <li>
+          <a href="1">Existing Inventory</a>
+        </li>
+        <li>
+          <a href="1">Used Inventory</a>
+        </li>
+        <li>
+          <a href="1">Cybertruck</a>
+        </li>
+        <li>
+          <a href="1">Roadster</a>
+        </li>
+        <li>
+          <a href="1">Events</a>
+        </li>
+        <li>
+          <a href="1">Agents</a>
+        </li>
+      </BurgerNav>
     </Container>
   );
 };
@@ -54,6 +77,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
 `;
 
 const Menu = styled.div`
@@ -86,4 +110,33 @@ const CustomMenu = styled(MenuIcon)`
   cursor: pointer;
 `;
 
-const BurgerNav = styled.div``;
+const BurgerNav = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: white;
+  list-style: none;
+  z-index: 100;
+  text-align: start;
+  padding: 15px 10px;
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 0.2s;
+  li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    a {
+      font-weight: 600;
+    }
+  }
+`;
+
+const CustomClose = styled(CloseIcon)`
+  cursor: pointer;
+`;
+
+const CloseWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
