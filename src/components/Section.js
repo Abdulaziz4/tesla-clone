@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 
 const Section = ({
   title,
@@ -9,15 +10,19 @@ const Section = ({
 }) => {
   return (
     <Wrap img={backgroundImg}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
       <div>
-        <ButtonGroup>
-          <LeftButton>{leftBtnTxt}</LeftButton>
-          {rightBtnTxt && <RightButton>{rightBtnTxt}</RightButton>}
-        </ButtonGroup>
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{leftBtnTxt}</LeftButton>
+            {rightBtnTxt && <RightButton>{rightBtnTxt}</RightButton>}
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
       </div>
     </Wrap>
