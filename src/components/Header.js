@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import logo from "../images/logo.svg";
+
 import { useState } from "react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +14,7 @@ const Header = () => {
   return (
     <Container>
       <a href="s">
-        <img src="/images/logo.svg" alt="" />
+        <img src={logo} alt="" />
       </a>
       <Menu>
         <a href="1">Model S</a>
