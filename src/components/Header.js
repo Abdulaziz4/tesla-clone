@@ -82,27 +82,36 @@ const Container = styled.div`
   z-index: 10;
 `;
 
-const Menu = styled.div`
+const MenuOption = styled.div`
+  a {
+    padding: 10px 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 30px;
+    transition: background-color 300ms ease-in-out;
+  }
+  a:hover {
+    background-color: rgba(57, 60, 65, 0.1);
+  }
+`;
+
+const Menu = styled(MenuOption)`
   display: flex;
   align-items: center;
   justify-content: center;
 
   flex: 1;
-  a {
-    font-weight: 600;
-    text-transform: uppercase;
-    margin: 0 10px;
-  }
+
   @media (max-width: 768px) {
     display: none;
   }
 `;
 
-const RightMenu = styled.div`
+const RightMenu = styled(MenuOption)`
   display: flex;
   align-items: center;
   a {
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     margin: 0 10px;
   }
@@ -129,7 +138,7 @@ const BurgerNav = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 15px 0;
     a {
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 `;

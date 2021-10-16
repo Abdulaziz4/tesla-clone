@@ -12,7 +12,7 @@ import accessoryImg from "../images/accessories.jpg";
 
 const Home = () => {
   const scrollRef = useRef(null);
-  useScrollSnap({ ref: scrollRef, duration: 100, delay: 1 });
+  useScrollSnap({ ref: scrollRef, duration: 150, delay: 0.5 });
 
   return (
     <Container ref={scrollRef}>
